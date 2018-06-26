@@ -19,22 +19,12 @@ export class ForecastEffects {
     constructor(private actions$: Actions,
         private weatherService: WeatherService) { }
     @Effect()
-    getForecasts$: Observable<Action> = this.actions$
+    searchWeatherForCity$: Observable<Action> = this.actions$
         .ofType<ForecastActions.Getforecasts>(ForecastActions.GET_FORECASTS)
         .map(a => a.payload)
-        .switchMap(city =>
-            this.weatherService.searchWeatherForCity(city)
+        .switchMap(city => {
+            return this.weatherService.searchWeatherForCity(city)
                 .map(res => new ForecastActions.GetForcastsDone(res))
                 .catch(error => of(new ForecastActions.GetForcastsFailed(error)))
-        );
-
-    @Effect()
-    getFoecast$: Observable<Action> = this.actions$
-        .ofType<ForecastActions.Getforecasts>(ForecastActions.GET_FORECASTS)
-        .map(a => a.payload)
-        .switchMap(city =>
-            this.weatherService.searchWeatherForCity(city)
-                .map(res => new ForecastActions.GetForcastsDone(res))
-                .catch(error => of(new ForecastActions.GetForcastsFailed(error)))
-        );
+        });
 }

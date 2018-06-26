@@ -25,7 +25,7 @@ export class WeatherContainer implements OnInit {
   }
 
   ngOnInit(): void {
-   // this.store.dispatch(new fromActions.GetForcastsDone())
+
   }
   citySearch() {
     // TO BE IMPLMENTED

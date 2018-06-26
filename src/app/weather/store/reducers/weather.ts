@@ -4,14 +4,15 @@ import { ForecastState } from './app.states'
 
 export const initialState: ForecastState = {
     forecasts: [],
-    message: ''
+    message: '',
+    loading: false
 }
 
 export function reducer(state = initialState, action: fromActions.ALL_REDUCER_ACTIONS): ForecastState {
     alert('mowa')
     switch (action.type) {
         case fromActions.GET_FORECASTS_DONE: {
-            return { forecasts: action.payload, message: 'Success' };
+            return { ...state, forecasts: action.payload, message: 'Success',loading:true }
         }
         default: {
             return state

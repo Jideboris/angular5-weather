@@ -7,5 +7,6 @@ export interface AppState {
 export interface ForecastState {
     forecasts: Forecast[]
     message: string
+    loading: boolean
 
 } 

@@ -21,10 +21,8 @@ export class WeatherService {
     APPID: '010721642521f31b0fbc8c3831d45951'
   };
 
-  constructor(private http: HttpClient) {
-
-  }
-
+  constructor(private http: HttpClient){}
+  
   searchWeatherForCity(city: string): Observable<Forecast[]> {
     alert(city)
     this.params.q = city

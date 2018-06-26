@@ -12,11 +12,9 @@ import { ForecastState } from '../../store/reducers/app.states'
   selector: 'app-search',
   templateUrl: './search.component.html'
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
   constructor(private store: Store<ForecastState>) { }
-  ngOnInit() {
-    // this.store.dispatch(new userActions.LoadAction());
-  }
+
   search(city: string) {
     this.getforecastsbycity(city)
   }

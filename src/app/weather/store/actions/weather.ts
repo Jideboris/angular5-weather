@@ -13,7 +13,7 @@ export class Getforecasts implements Action {
 }
 export class GetForcastsDone implements Action {
   readonly type = GET_FORECASTS_DONE
-  constructor(public payload: Forecast[]) { }
+   constructor(public payload: Forecast[]) { }
 }
 export class GetForcastsFailed implements Action {
   readonly type = GET_FORECASTS_FAILED

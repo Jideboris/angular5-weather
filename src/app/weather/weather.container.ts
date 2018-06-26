@@ -22,6 +22,8 @@ export class WeatherContainer implements OnInit {
   constructor(private store: Store<ForecastState>) {
     this.message$ = store.select(fromReducer.getMessage)
     this.forecasts$ = store.select(fromReducer.getForecasts)
+    console.log(this.message$)
+    console.log(this.forecasts$)
   }
 
   ngOnInit(): void {

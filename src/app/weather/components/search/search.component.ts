@@ -19,6 +19,6 @@ export class SearchComponent {
     this.getforecastsbycity(city)
   }
   getforecastsbycity(city) {
-    this.store.dispatch(new fromActions.Getforecasts(city))
+    this.store.dispatch(new fromActions.GetforecastsAction(city))
   }
 }

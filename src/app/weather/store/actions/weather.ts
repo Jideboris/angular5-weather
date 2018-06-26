@@ -7,16 +7,16 @@ export const GET_FORECASTS = "GET_FORECASTS"
 export const GET_FORECASTS_DONE = "GET_FORECASTS_DONE"
 export const GET_FORECASTS_FAILED = 'GET_FORECASTS_FAILED'
 
-export class Getforecasts implements Action {
+export class GetforecastsAction implements Action {
   readonly type = GET_FORECASTS
   constructor(public payload: string) { }
 }
-export class GetForcastsDone implements Action {
+export class GetForcastsDoneAction implements Action {
   readonly type = GET_FORECASTS_DONE
-   constructor(public payload: Forecast[]) { }
+  constructor(public payload: Forecast[]) { }
 }
-export class GetForcastsFailed implements Action {
+export class GetForcastsFailedAction implements Action {
   readonly type = GET_FORECASTS_FAILED
   constructor(public payload: any) { }
 }
-export type ALL_REDUCER_ACTIONS = Getforecasts | GetForcastsDone | GetForcastsFailed
+export type ALL_REDUCER_ACTIONS = GetforecastsAction | GetForcastsDoneAction | GetForcastsFailedAction

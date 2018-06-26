@@ -3,7 +3,7 @@ import { Effect, Actions } from '@ngrx/effects'
 import { Action } from '@ngrx/store'
 import { Observable } from 'rxjs/Observable'
 
-import * as ForecastActions from '../actions/weather'
+import * as fromActions from '../actions/weather'
 import { WeatherService } from '../../weather.service'
 
 import 'rxjs/add/operator/map'
@@ -17,14 +17,16 @@ import { of } from 'rxjs/observable/of'
 export class ForecastEffects {
 
     constructor(private actions$: Actions,
-        private weatherService: WeatherService) { }
+        private weatherService: WeatherService) {
+        // console.log(weatherService)
+    }
     @Effect()
     searchWeatherForCity$: Observable<Action> = this.actions$
-        .ofType<ForecastActions.Getforecasts>(ForecastActions.GET_FORECASTS)
+        .ofType<fromActions.GetforecastsAction>(fromActions.GET_FORECASTS)
         .map(a => a.payload)
-        .switchMap(city => {
-            return this.weatherService.searchWeatherForCity(city)
-                .map(res => new ForecastActions.GetForcastsDone(res))
-                .catch(error => of(new ForecastActions.GetForcastsFailed(error)))
-        });
+        .switchMap(city =>
+            this.weatherService.getForecast(city)
+                .map(res => new fromActions.GetForcastsDoneAction(res))
+                .catch(error => of(new fromActions.GetForcastsFailedAction(error)))
+        )
 }

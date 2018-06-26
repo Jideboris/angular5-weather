@@ -21,9 +21,14 @@ export class WeatherService {
     APPID: '010721642521f31b0fbc8c3831d45951'
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    // console.log(http)
+    // this.searchWeatherForCity('London').subscribe(res => {
+    //   console.log(res)
+    // })
+  }
 
-  searchWeatherForCity(city: string): Observable<Forecast[]> {
+  getForecast(city: string): Observable<Forecast[]> {
     console.log(city)
     this.params.q = city
     console.log(this.params)

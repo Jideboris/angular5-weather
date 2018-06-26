@@ -7,13 +7,13 @@ import { ResultsComponent } from './components/results/results.component'
 
 import { StoreModule } from '@ngrx/store'
 import { EffectsModule } from '@ngrx/effects'
-import { reducer } from './store/reducers/weather'
+import { reducers, metaReducers } from './store/reducers/reducers'
 import { ForecastEffects } from './store/effects/weather'
 
 @NgModule({
   imports: [
     CommonModule,
-    StoreModule.forRoot(reducer),
+    StoreModule.forRoot(reducers),
     EffectsModule.forRoot([ForecastEffects])
   ],
   declarations: [

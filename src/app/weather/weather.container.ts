@@ -20,15 +20,13 @@ export class WeatherContainer implements OnInit {
   forecasts$: Observable<Forecast[]>
 
   constructor(private store: Store<State>) {
-    // this.message$ = store.select(fromReducer.getMessage)
-    // this.forecasts$ = store.select(fromReducer.getWeather)
- 
+
   }
 
   ngOnInit(): void {
 
   }
   citySearch(city: string) {
-   // this.store.dispatch(new fromActions.GetforecastsAction(city))
+   
   }
 }

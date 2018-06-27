@@ -5,11 +5,10 @@ import { WeatherModule } from './weather/weather.module'
 
 import {HttpModule} from '@angular/http'
 import {HttpClientModule} from '@angular/common/http'
-import { StoreModule } from '@ngrx/store'
-import { EffectsModule } from '@ngrx/effects'
 
 import { reducers, metaReducers} from './weather/store/reducers'
 import { ForecastEffects } from './weather/store/effects/weather'
+
 
 import { AppComponent } from './app.component'
 import { CommonModule } from '@angular/common'
@@ -17,6 +16,7 @@ import { CommonModule } from '@angular/common'
 @NgModule({
   declarations: [
     AppComponent
+   
   ],
   imports: [
     CommonModule,
@@ -24,10 +24,8 @@ import { CommonModule } from '@angular/common'
     AppRoutingModule,
     WeatherModule,
     HttpModule,
-    HttpClientModule,
-    //StoreModule.forRoot(reducers, { metaReducers }),
-   // EffectsModule.forRoot([ForecastEffects])
-
+    HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

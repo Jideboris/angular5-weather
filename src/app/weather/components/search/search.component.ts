@@ -7,7 +7,6 @@ import * as fromActions from '../../store/actions/weather'
 import { Forecast } from '../../../model/weather'
 import { State } from '../../store/reducers/weather'
 import { getWeather, getMessage } from '../../store/selectors/weather'
-import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service'
 
 @Component({
   selector: 'app-search',

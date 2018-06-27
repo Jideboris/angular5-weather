@@ -7,8 +7,7 @@ import * as fromActions from '../../store/actions/weather'
 import { Forecast } from '../../../model/weather'
 import { State } from '../../store/reducers/weather'
 import { getWeather, getMessage } from '../../store/selectors/weather'
-import {LOCAL_STORAGE, WebStorageService} from 'angular-webstorage-service'
-
+import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service'
 
 @Component({
   selector: 'app-search',
@@ -18,9 +17,7 @@ import {LOCAL_STORAGE, WebStorageService} from 'angular-webstorage-service'
 export class SearchComponent implements OnInit {
   forecasts$: Observable<Forecast[]>
   message$: Observable<any>
-  public location:string
   constructor(private store: Store<State>) {
-
     this.forecasts$ = this.store.select(getWeather)
 
   }

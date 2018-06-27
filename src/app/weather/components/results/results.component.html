@@ -10,7 +10,7 @@
   </thead>
   <tbody>
     <tr>
-      <td scope="row">{{ location$ }}</td>
+      <td scope="row">{{ message$ }}</td>
       <td scope="row" *ngFor="let forecasts of forecasts$ | async">
         {{ forecasts.temp }} &deg;</td>
     </tr>

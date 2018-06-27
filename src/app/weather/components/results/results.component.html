@@ -10,16 +10,10 @@
   </thead>
   <tbody>
     <tr>
-      <td scope="row"  *ngFor="let forecasts of forecasts$ | async">
-         {{ forecasts.temp }} &deg;</td>
-   
-    
+      <td scope="row">{{ location$ }}</td>
+      <td scope="row" *ngFor="let forecasts of forecasts$ | async">
+        {{ forecasts.temp }} &deg;</td>
     </tr>
-    <!-- <td scope="row">London</td>
-    <td scope="row">{{ forecasts.temp }} &deg;</td>
-    <td scope="row">12.5 &deg;</td>
-    <td scope="row">9 &deg;</td>
-    <td scope="row">2 &deg;</td>
-     -->
+ 
   </tbody>
 </table>

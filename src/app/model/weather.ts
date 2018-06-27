@@ -14,7 +14,7 @@ export interface Coordinates {
 export interface Forecast {
   temp: number
   time: string
-  visible:boolean
+  location:string
   // temp_max: number;
   // pressure: number;
   // sea_level: number;

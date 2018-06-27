@@ -16,10 +16,13 @@ export const initialState: State = {
     message: '',
     loading: false
 }
-
+let par = ''
 export function reducer(state = initialState, action: fromActions.ALL_REDUCER_ACTIONS): State {
+   
     switch (action.type) {
         case fromActions.GET_FORECASTS: {
+            par = action.payload
+            console.log(par)
             return {
                 ...state,
                 forecasts: {}, message: '', loading: true
@@ -29,7 +32,7 @@ export function reducer(state = initialState, action: fromActions.ALL_REDUCER_AC
             let tobereturned = {}
             let output = action.payload.list.map((item) => {
                 let i = item.dt_txt.split(' ')[1].split(':')[0]
-                return { time: i, temp: item.main.temp, visible: false }
+                return { time: i, temp: item.main.temp, location: par }
             })
             let final = []
             for (let a = 0; a <= output.length - 1; a++) {
@@ -47,6 +50,7 @@ export function reducer(state = initialState, action: fromActions.ALL_REDUCER_AC
                     final[3] = (output[a])
                 }
             }
+            console.log(final)
             return {
                 ...state,
                 forecasts: final, message: 'Success', loading: false

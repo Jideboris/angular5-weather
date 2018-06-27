@@ -12,12 +12,14 @@ import { reducers, metaReducers} from './weather/store/reducers'
 import { ForecastEffects } from './weather/store/effects/weather'
 
 import { AppComponent } from './app.component'
+import { CommonModule } from '@angular/common'
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     WeatherModule,

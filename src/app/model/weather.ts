@@ -12,8 +12,9 @@ export interface Coordinates {
 }
 
 export interface Forecast {
-  temp: number;
-  time: string;
+  temp: number
+  time: string
+  visible:boolean
   // temp_max: number;
   // pressure: number;
   // sea_level: number;

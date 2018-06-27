@@ -19,10 +19,6 @@ import { of } from 'rxjs/observable/of';
 export class ForecastEffects {
     constructor(private actions$: Actions,
         private weatherService: WeatherService) {
-        
-        // this.weatherService.getForecast('London').subscribe(res=>{
-        //     console.log(res)
-        // })
     }
 
     @Effect()

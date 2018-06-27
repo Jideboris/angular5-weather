@@ -16,11 +16,10 @@ export class ResultsComponent implements OnChanges {
   forecasts$: Observable<Forecast[]>
   message$: Observable<any>
   constructor(private store: Store<State>) {
-
-    this.forecasts$ = store.select(getWeather)
-    this.message$ = store.select(getMessage)
-
-   console.log(store)
+    this.forecasts$ = this.store.select(getWeather)
+    // this.forecasts$ = store.select(getWeather)
+    // this.message$ = store.select(getMessage)
+    console.log(this.forecasts$)
 
   }
 

@@ -17,9 +17,7 @@ export class WeatherService {
   };
 
   constructor(private http: HttpClient) {
-    // this.getForecast('London').subscribe(res => {
-    //   console.log(res)
-    // })
+
   }
 
   getForecast(city: string): Observable<Forecast[]> {

@@ -13,16 +13,17 @@ import { getWeather, getMessage } from '../../store/selectors/weather'
   selector: 'app-search',
   templateUrl: './search.component.html'
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit {
   forecasts$: Observable<Forecast[]>
   message$: Observable<any>
   constructor(private store: Store<State>) {
 
-    this.forecasts$ = store.select(getWeather)
-    this.message$ = store.select(getMessage)
-    console.log(store)
-  }
+    this.forecasts$ = this.store.select(getWeather)
 
+  }
+  ngOnInit() {
+  
+  }
   searchforecast(city: string) {
     this.getforecastsbycity(city)
   }

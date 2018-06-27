@@ -1,13 +1,18 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store'
-import { ForecastState } from '../../store/reducers/app.states'
+import { State } from '../../store/reducers/weather'
 
-export const getForecastState = createFeatureSelector<ForecastState>('forecastState')
-export const getForecasts = createSelector(
-    getForecastState,
-    (state: ForecastState) => state.forecasts
+export const getWeatherState = createFeatureSelector<State>('weatherState')
+export const getWeather = createSelector(
+    getWeatherState,
+    (state: State) => state.forecasts
 );
 
 export const getMessage = createSelector(
-    getForecastState,
-    (state: ForecastState) => state.message
+    getWeatherState,
+    (state: State) => state.message
+);
+
+export const getLoading = createSelector(
+    getWeatherState,
+    (state: State) => state.loading
 );

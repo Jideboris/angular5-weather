@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable'
 import * as fromReducer from '../weather/store/selectors/weather'
 import * as fromActions from '../weather/store/actions/weather'
 import { Forecast } from '../model/weather'
-import { ForecastState } from './store/reducers/app.states'
+import { State } from './store/reducers/weather'
 
 
 
@@ -19,17 +19,16 @@ export class WeatherContainer implements OnInit {
   message$: Observable<string>
   forecasts$: Observable<Forecast[]>
 
-  constructor(private store: Store<ForecastState>) {
-    this.message$ = store.select(fromReducer.getMessage)
-    this.forecasts$ = store.select(fromReducer.getForecasts)
-    // console.log(this.message$)
-    // console.log(this.forecasts$)
+  constructor(private store: Store<State>) {
+    // this.message$ = store.select(fromReducer.getMessage)
+    // this.forecasts$ = store.select(fromReducer.getWeather)
+ 
   }
 
   ngOnInit(): void {
 
   }
-  citySearch() {
-    // TO BE IMPLMENTED
+  citySearch(city: string) {
+   // this.store.dispatch(new fromActions.GetforecastsAction(city))
   }
 }

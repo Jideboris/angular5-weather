@@ -5,14 +5,24 @@ import * as fromReducer from '../../store/reducers/weather'
 import * as fromActions from '../../store/actions/weather'
 
 import { Forecast } from '../../../model/weather'
-import { ForecastState } from '../../store/reducers/app.states'
+import { State } from '../../store/reducers/weather'
+import { getWeather, getMessage } from '../../store/selectors/weather'
 
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html'
 })
 export class ResultsComponent implements OnChanges {
-  constructor() { }
+  forecasts$: Observable<Forecast[]>
+  message$: Observable<any>
+  constructor(private store: Store<State>) {
+
+    this.forecasts$ = store.select(getWeather)
+    this.message$ = store.select(getMessage)
+
+   console.log(store)
+
+  }
 
   ngOnChanges() {
     // IMPLEMENT ANYTHING YOU BEKIEVE YOU MIGHT NEED HERE

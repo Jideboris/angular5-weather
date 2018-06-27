@@ -1,6 +1,5 @@
-import { Injectable } from '@angular/core'
-import { Action, Store } from '@ngrx/store'
 
+import { Action } from '@ngrx/store'
 import { Forecast } from '../../../model/weather'
 
 export const GET_FORECASTS = "GET_FORECASTS"
@@ -13,10 +12,13 @@ export class GetforecastsAction implements Action {
 }
 export class GetForcastsDoneAction implements Action {
   readonly type = GET_FORECASTS_DONE
-  constructor(public payload: Forecast[]) { }
+  constructor(public payload: any) { }
 }
 export class GetForcastsFailedAction implements Action {
   readonly type = GET_FORECASTS_FAILED
   constructor(public payload: any) { }
 }
-export type ALL_REDUCER_ACTIONS = GetforecastsAction | GetForcastsDoneAction | GetForcastsFailedAction
+export type ALL_REDUCER_ACTIONS
+  = GetforecastsAction
+  | GetForcastsDoneAction
+  | GetForcastsFailedAction

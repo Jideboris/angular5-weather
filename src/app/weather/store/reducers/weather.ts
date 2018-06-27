@@ -18,7 +18,6 @@ export const initialState: State = {
 }
 
 export function reducer(state = initialState, action: fromActions.ALL_REDUCER_ACTIONS): State {
-    console.log(action.type)
     switch (action.type) {
         case fromActions.GET_FORECASTS: {
             return {
@@ -30,16 +29,27 @@ export function reducer(state = initialState, action: fromActions.ALL_REDUCER_AC
             let tobereturned = {}
             let output = action.payload.list.map((item) => {
                 let i = item.dt_txt.split(' ')[1].split(':')[0]
-                let inclu = (i == '09' || i == '15' || i == '21' || i == '03')
-                if (!inclu) {
-                    return { time: item.dt_txt.split(' ')[1].split(':')[0], temp: item.main.temp, visible: true }
-                }
-                return { time: item.dt_txt.split(' ')[1].split(':')[0], temp: item.main.temp, visible: false }
+                return { time: i, temp: item.main.temp, visible: false }
             })
-            console.log(output)
+            let final = []
+            for (let a = 0; a <= output.length - 1; a++) {
+                let d = output[a].time
+                if (d === '06' || d === '12' || d === '18' || d === '00') {
+                    final[0] = (output[a])
+                }
+                if (d === '12') {
+                    final[1] = (output[a])
+                }
+                if (d === '18') {
+                    final[2] = (output[a])
+                }
+                if (d === '00') {
+                    final[3] = (output[a])
+                }
+            }
             return {
                 ...state,
-                forecasts: output, message: 'Success', loading: false
+                forecasts: final, message: 'Success', loading: false
             }
         }
         case fromActions.GET_FORECASTS_FAILED: {

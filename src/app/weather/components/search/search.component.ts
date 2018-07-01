@@ -16,6 +16,8 @@ import { getWeather, getMessage } from '../../store/selectors/weather'
 export class SearchComponent implements OnInit {
   forecasts$: Observable<Forecast[]>
   message$: Observable<any>
+  @Input()
+  city ='London'
   constructor(private store: Store<State>) {
     this.forecasts$ = this.store.select(getWeather)
 
@@ -24,6 +26,7 @@ export class SearchComponent implements OnInit {
 
   }
   searchforecast(city: string) {
+    alert(this.city)
     this.getforecastsbycity(city)
   }
   getforecastsbycity(city) {

@@ -10,4 +10,4 @@ const appRoutes: Routes = [
     component: WeatherContainer
   }
 ];
-export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(appRoutes)

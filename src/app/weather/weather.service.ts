@@ -1,9 +1,8 @@
 import 'rxjs/add/operator/map'
 import { Injectable } from '@angular/core'
-import { Http } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
 import { Forecast } from '../model/weather'
-import { HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http'
 
 
 @Injectable()
